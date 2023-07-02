@@ -1,9 +1,9 @@
-# ruby (Typst package)
+# rubby (Typst package)
 
 ## Usage
 
 ```typst
-#import "@preview/ruby:0.8.0": get_ruby
+#import "@preview/rubby:0.8.0": get_ruby
 
 ruby = get_ruby(
   size: 0.5em,         // Ruby font size
