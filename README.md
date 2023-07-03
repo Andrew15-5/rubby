@@ -27,7 +27,7 @@ If you don't want automatically wrap text with delimiter:
 #let ruby = get_ruby(auto_spacing: false)
 ```
 
-See also <https://github.com/rinmyo/ruby-typ/blob/main/manual.pdf>.
+See also <https://github.com/rinmyo/ruby-typ/blob/main/manual.pdf> and `example.typ`.
 
 ## Notes
 
