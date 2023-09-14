@@ -2,7 +2,7 @@
 
 ## Usage
 
-```typst
+```typ
 #import "@preview/rubby:0.8.0": get-ruby
 
 #let ruby = get-ruby(
@@ -23,7 +23,7 @@ Treat each kanji as a separate word:
 
 If you don't want automatically wrap text with delimiter:
 
-```typst
+```typ
 #let ruby = get-ruby(auto-spacing: false)
 ```
 
@@ -46,7 +46,7 @@ You can always use a one-letter function (variable) name to shorten the
 function call length (if you have to use it a lot), e.g., `#let r = get-ruby()`
 (or `f` — short for furigana). But be careful as there are functions with names
 `v` and `h` and there could be a new built-in function with a name `r` or `f`
-which will break your document (Typst right now is in beta, so breaking changes
+which may break your document (Typst right now is in beta, so breaking changes
 are possible).
 
 Although you can open issues or send PRs, I won't be able to always reply
