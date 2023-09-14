@@ -16,6 +16,9 @@ generate-notes *tag:
   sh ./scripts/generate-notes.sh {{tag}}
 
 create-release *tag:
+  git push --tags
+  git checkout master
+  git push
   gh release create "$(just get-version-tag '{{tag}}')" --title "$(just generate-title '{{tag}}')" --notes "$(just generate-notes '{{tag}}')"
 
 add-tag:
