@@ -8,8 +8,20 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 
 ## [Unreleased]
 
+## [0.9.0] - 2023-09-14
+
+### Changed
+
+Now kebab case is used instead of snake case.
+
+- Renamed function `get_ruby` to `get-ruby` (**breaking change**).
+- Renamed `get-ruby`'s argument `auto_spacing` to `auto-spacing` (**breaking
+  change**).
+
 ## [0.8.0] - 2023-07-03
 
 Initial release.
+
+[0.9.0]: https://github.com/Andrew15-5/rubby/releases/tag/v0.9.0
 
 [0.8.0]: https://github.com/Andrew15-5/rubby/releases/tag/v0.8.0

@@ -1,6 +1,6 @@
 [package]
 name = "rubby"
-version = "0.8.0"
+version = "0.9.0"
 entrypoint = "rubby.typ"
 authors = ["Andrew Voynov"]
 license = "AGPL-3.0-only"
