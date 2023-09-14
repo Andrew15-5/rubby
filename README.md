@@ -51,3 +51,16 @@ are possible).
 
 Although you can open issues or send PRs, I won't be able to always reply
 quickly (sometimes I'm very busy).
+
+## Changelog
+
+You can view the change log in the CHANGELOG.md file in the root of the project.
+
+## License
+
+This Typst package is licensed under AGPL v3.0. You can view the license in the
+LICENSE file in the root of the project or at
+<https://www.gnu.org/licenses/agpl-3.0.txt>. There is also a NOTICE file for
+3rd party copyright notices.
+
+Copyright (C) 2023  Andrew Voynov
