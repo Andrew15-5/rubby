@@ -8,6 +8,12 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 
 ## [Unreleased]
 
+## [0.9.2] - 2023-09-14
+
+### Fixed
+
+- Fixed import in example.typ.
+
 ## [0.9.1] - 2023-09-14
 
 ### Fixed
