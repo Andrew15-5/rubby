@@ -15,12 +15,11 @@ generate-title *tag:
 generate-notes *tag:
   sh ./scripts/generate-notes.sh {{tag}}
 
-create-release *tag:
+create-release *tag: _add-tag
   git push --tags
-  git checkout master
   git push
   gh release create "$(just get-version-tag '{{tag}}')" --title "$(just generate-title '{{tag}}')" --notes "$(just generate-notes '{{tag}}')"
 
-add-tag:
+_add-tag:
   git checkout master
   git tag "v$(grep '^version' typst.toml | cut -d ' ' -f 3 | tr -d '"')" HEAD
