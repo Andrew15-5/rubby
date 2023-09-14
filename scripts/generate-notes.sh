@@ -17,7 +17,7 @@ sed_command2="1,${plus_one_line}d"
 sed_command3="${version_begin_pattern}="
 
 version_begin_line_number=$(
-  sed -n -E "$sed_command2;$sed_command3" "$changelog_file"
+  sed -n -E "$sed_command2;$sed_command3" "$changelog_file" | head -n 1
 )
 minus_one_line=$((version_begin_line_number - 1))
 
