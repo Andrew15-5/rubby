@@ -2,13 +2,13 @@
   font: ("Liberation Sans", "Noto Sans CJK JP")
 ) // Optional
 
-#import "@preview/rubby:0.8.0": get_ruby
-#let ruby = get_ruby()
+#import "@local/rubby:0.9.1": get-ruby
+#let ruby = get-ruby()
 
 ```typst
-#let ruby = get_ruby() // (1) Adds missing delimiter around every content/string
+#let ruby = get-ruby() // (1) Adds missing delimiter around every content/string
 // or
-#let ruby = get_ruby(auto_spacing: false) // (2) Logic from original project
+#let ruby = get-ruby(auto-spacing: false) // (2) Logic from original project
 ```
 
 #ruby[ふりがな][振り仮名]
@@ -19,7 +19,7 @@
 
 Next 2 lines look the same with (1) (default):
 
-#let ruby = get_ruby()
+#let ruby = get-ruby()
 
 #ruby[|きょうりょく|][|協力|]
 
@@ -27,7 +27,7 @@ Next 2 lines look the same with (1) (default):
 
 But lines are being typeset differently if (2) is used:
 
-#let ruby = get_ruby(auto_spacing: false)
+#let ruby = get-ruby(auto-spacing: false)
 
 #ruby[|きょうりょく|][|協力|]
 
@@ -35,7 +35,7 @@ But lines are being typeset differently if (2) is used:
 
 First 3 lines out of 4 look the same way with (1):
 
-#let ruby = get_ruby()
+#let ruby = get-ruby()
 
 #ruby[きゅう][九]#ruby[じゅう][十]
 
@@ -47,7 +47,7 @@ First 3 lines out of 4 look the same way with (1):
 
 Only 2nd and 3rd lines look the same way with (2):
 
-#let ruby = get_ruby(auto_spacing: false)
+#let ruby = get-ruby(auto-spacing: false)
 
 #ruby[きゅう][九]#ruby[じゅう][十]
 
