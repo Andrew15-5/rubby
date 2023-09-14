@@ -6,6 +6,9 @@ get-version *tag:
 get-version-tag *tag:
   echo "v$(just get-version '{{tag}}')"
 
+change-version tag:
+  sh ./scripts/change-version.sh {{tag}}
+
 generate-title *tag:
   sh ./scripts/generate-title.sh {{tag}}
 
