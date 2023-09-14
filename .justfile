@@ -17,3 +17,7 @@ generate-notes *tag:
 
 create-release *tag:
   gh release create "$(just get-version-tag '{{tag}}')" --title "$(just generate-title '{{tag}}')" --notes "$(just generate-notes '{{tag}}')"
+
+add-tag:
+  git checkout master
+  git tag "v$(grep '^version' typst.toml | cut -d ' ' -f 3 | tr -d '"')" HEAD
