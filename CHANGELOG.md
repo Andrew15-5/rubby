@@ -8,6 +8,12 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 
 ## [Unreleased]
 
+## [0.9.1] - 2023-09-14
+
+### Fixed
+
+- Fixed example.typ.
+
 ## [0.9.0] - 2023-09-14
 
 ### Changed
@@ -21,6 +27,8 @@ Now kebab case is used instead of snake case.
 ## [0.8.0] - 2023-07-03
 
 Initial release.
+
+[0.9.1]: https://github.com/Andrew15-5/rubby/releases/tag/v0.9.1
 
 [0.9.0]: https://github.com/Andrew15-5/rubby/releases/tag/v0.9.0
 
