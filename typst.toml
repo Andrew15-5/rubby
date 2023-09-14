@@ -6,3 +6,5 @@ authors = ["Andrew Voynov"]
 license = "AGPL-3.0-only"
 description = "Add ruby (furigana) next to base text."
 repository = "https://github.com/Andrew15-5/rubby"
+keywords = ["ruby", "furigana", "CJK", "Chinese", "Japanese", "Korean"]
+exclude = ["example.typ"]
