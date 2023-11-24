@@ -29,21 +29,21 @@
     )
   }
 
-  let rt-array = if type(rt) == "content" {
+  let rt-array = if type(rt) == content {
     let (inner, func) = extract-content(rt)
     add-spacing-if-enabled(inner).split(delimiter).map(func)
-  } else if type(rt) == "string" {
+  } else if type(rt) == str {
     add-spacing-if-enabled(rt).split(delimiter)
   } else {(rt,)}
-  assert(type(rt-array) == "array")
+  assert(type(rt-array) == array)
 
-  let rb-array = if type(rb) == "content" {
+  let rb-array = if type(rb) == content {
     let (inner, func) = extract-content(rb)
     add-spacing-if-enabled(inner).split(delimiter).map(func)
-  } else if type(rb) == "string" {
+  } else if type(rb) == str {
     add-spacing-if-enabled(rb).split(delimiter)
   } else {(rb,)}
-  assert(type(rb-array) == "array")
+  assert(type(rb-array) == array)
 
   if rt-array.len() != rb-array.len() {
     rt-array = (rt,)
