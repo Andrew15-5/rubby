@@ -2,7 +2,7 @@
   font: ("Liberation Sans", "Noto Sans CJK JP")
 ) // Optional
 
-#import "@preview/rubby:0.10.0": get-ruby
+#import "@preview/rubby:0.10.1": get-ruby
 #let ruby = get-ruby()
 
 ```typst

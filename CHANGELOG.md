@@ -8,6 +8,18 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 
 ## [Unreleased]
 
+## [0.10.1] - 2023-12-01
+
+### Changed
+
+- Hid the default recipe (from `just -l`) in the `.justfile`.
+- Removed `tag` argument wherever it's not needed in the `.justfile`.
+
+### Added
+
+- Added `Development` and `Publishing a Typst package` sections in the `README.md`.
+- Added keywords in the `typst.toml`: `ルビ`, `振り仮名`, `ふりがな`.
+
 ## [0.10.0] - 2023-11-24
 
 ### Changed
@@ -45,6 +57,8 @@ Now kebab case is used instead of snake case.
 ## [0.8.0] - 2023-07-03
 
 Initial release.
+
+[0.10.1]: https://github.com/Andrew15-5/rubby/releases/tag/v0.10.1
 
 [0.10.0]: https://github.com/Andrew15-5/rubby/releases/tag/v0.10.0
 
