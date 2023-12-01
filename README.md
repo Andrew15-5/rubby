@@ -75,10 +75,24 @@ Here is a short description of the development process:
    `just mark-PR-version`;
 2. copy newly created directory (with a version name) and place it in the
    appropriate place in your fork of the `typst/packages` repository;
-3. run `git fetch upstream && git merge upstream main` to sync fork with `typst/packages`;
+3. run `git checkout main && git fetch upstream && git merge upstream/main` to sync fork with `typst/packages`;
 4. go to a new branch with `git checkout -b <package-version>`;
 5. commit newly added directory with commit message: `package:version`;
 6. run `gh pr create` and follow further CLI instructions.
+
+<details><summary>justfile snippet</summary>
+
+```just
+sync:
+  git checkout main
+  git fetch upstream
+  git merge upstream/main
+
+pr:
+  gh pr create --no-maintainer-edit
+```
+
+</details>
 
 ## Changelog
 
