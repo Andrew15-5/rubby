@@ -1,24 +1,26 @@
-default:
+_default:
 
-_get-version *tag:
-  sh ./scripts/get-version.sh {{tag}}
+_get-version:
+  sh ./scripts/get-version.sh
 
-_get-version-tag *tag:
-  echo "v$(just _get-version '{{tag}}')"
+_get-version-tag:
+  echo "v$(just _get-version)"
 
 change-version tag:
   sh ./scripts/change-version.sh {{tag}}
 
-_generate-title *tag:
-  sh ./scripts/generate-title.sh {{tag}}
+_generate-title:
+  sh ./scripts/generate-title.sh
 
-_generate-notes *tag:
-  sh ./scripts/generate-notes.sh {{tag}}
+_generate-notes:
+  sh ./scripts/generate-notes.sh
 
-create-release *tag: _add-tag
+create-release: _add-tag
   git push --tags
   git push
-  gh release create "$(just _get-version-tag '{{tag}}')" --title "$(just _generate-title '{{tag}}')" --notes "$(just _generate-notes '{{tag}}')"
+  gh release create "$(just _get-version-tag)" \
+    --title "$(just _generate-title)" \
+    --notes "$(just _generate-notes)"
 
 _add-tag:
   git checkout master
