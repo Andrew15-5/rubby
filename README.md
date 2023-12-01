@@ -52,9 +52,37 @@ are possible).
 Although you can open issues or send PRs, I won't be able to always reply
 quickly (sometimes I'm very busy).
 
+## Development
+
+This repository should exist as a `@local` package with the version from the `typst.toml`.
+
+Here is a short description of the development process:
+1. run `git checkout dev && git pull`;
+2. make changes;
+3. test changes, if not done or something isn't working then go to step 1;
+4. when finished, run `just change-version <new semantic version>`;
+5. document changes in the `CHANGELOG.md`;
+6. commit all changes (only locally);
+7. create a `@local` Typst package with the new version and test it;
+8. if everything is working then run `git push`;
+9. realize that you've missed something and fix it (then push changes again);
+10. run `git checkout master && git merge dev` to sync `master` to `dev`;
+11. run `just create-release`.
+
+## Publishing a Typst package
+
+1. To make a new package version for merging into `typst/packages` repository run
+   `just mark-PR-version`;
+2. copy newly created directory (with a version name) and place it in the
+   appropriate place in your fork of the `typst/packages` repository;
+3. run `git fetch upstream && git merge upstream main` to sync fork with `typst/packages`;
+4. go to a new branch with `git checkout -b <package-version>`;
+5. commit newly added directory with commit message: `package:version`;
+6. run `gh pr create` and follow further CLI instructions.
+
 ## Changelog
 
-You can view the change log in the CHANGELOG.md file in the root of the project.
+You can view the change log in the `CHANGELOG.md` file in the root of the project.
 
 ## License
 
