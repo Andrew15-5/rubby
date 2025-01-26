@@ -21,12 +21,8 @@
   }
 
   let add-spacing-if-enabled(text) = {
-    if auto-spacing != true { return text }
-    return (
-      if text.first() != delimiter { delimiter }
-      + text
-      + if text.last() != delimiter { delimiter }
-    )
+    if auto-spacing != true or text.first() != delimiter or text.last() != delimiter { return text }
+    return delimiter + text + delimiter
   }
 
   let rt-array = if type(rt) == content {
