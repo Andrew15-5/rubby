@@ -8,6 +8,13 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 
 ## [Unreleased]
 
+## [0.10.2] - 2025-02-05
+
+### Changed
+
+- Updated code to work nicely with Typst v0.12.0. Will not compile with older
+  versions. (**breaking change**).
+
 ## [0.10.1] - 2023-12-01
 
 ### Changed
