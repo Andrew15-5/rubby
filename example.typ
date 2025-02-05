@@ -1,3 +1,4 @@
+#set document(date: none)
 #set text(
   font: ("Liberation Sans", "Noto Sans CJK JP")
 ) // Optional
