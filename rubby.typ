@@ -56,14 +56,18 @@
     h(1fr)
   }
 
-  box(style(st => {
+  box(layout(((width, height)) => {
     let sum-body = []
     let sum-width = 0pt
     let i = 0
     while i < rb-array.len() {
       let (body, ruby) = (rb-array.at(i), rt-array.at(i))
-      let bodysize = measure(body, st)
-      let rt-plain-width = measure(text(size: size, ruby), st).width
+      let bodysize = measure(body, width: width, height: height)
+      let rt-plain-width = measure(
+        text(size: size, ruby),
+        width: width,
+        height: height,
+      ).width
       let width = if rt-plain-width > bodysize.width {
         rt-plain-width
       } else {
@@ -81,7 +85,7 @@
           text(size: size, chars)
         )
       )
-      let textsize = measure(rubytext, st)
+      let textsize = measure(rubytext, width: width, height: height)
       let dx = textsize.width - bodysize.width
       let (t-dx, l-dx, r-dx) = if (alignment == "start") {
         (0pt, 0pt, dx)

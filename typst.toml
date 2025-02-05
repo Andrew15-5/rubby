@@ -1,6 +1,6 @@
 [package]
 name = "rubby"
-version = "0.10.1"
+version = "0.10.2"
 entrypoint = "rubby.typ"
 authors = ["Andrew Voynov"]
 license = "AGPL-3.0-only"
@@ -17,5 +17,5 @@ keywords = [
   "Japanese",
   "Korean",
 ]
-compiler = "0.8.0"
+compiler = "0.12.0"
 exclude = ["example.typ"]
