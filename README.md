@@ -66,7 +66,7 @@ Here is a short description of the development process:
 7. create a `@local` Typst package with the new version and test it;
 8. if everything is working then run `git push`;
 9. realize that you've missed something and fix it (then push changes again);
-10. run `git checkout master && git merge dev` to sync `master` to `dev`;
+10. run `git checkout master && git merge --no-ff dev` to sync `master` to `dev`;
 11. run `just create-release`.
 
 ## Publishing a Typst package
