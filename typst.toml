@@ -4,7 +4,7 @@ version = "0.10.2"
 entrypoint = "rubby.typ"
 authors = ["Andrew Voynov"]
 license = "AGPL-3.0-only"
-description = "Add ruby (furigana) next to base text."
+description = "Add ruby (furigana) next to base text. Supports HTML."
 repository = "https://github.com/Andrew15-5/rubby"
 keywords = [
   "ruby",
@@ -16,6 +16,7 @@ keywords = [
   "Chinese",
   "Japanese",
   "Korean",
+  "html",
 ]
-compiler = "0.12.0"
+compiler = "0.14.0"
 exclude = ["example.typ"]

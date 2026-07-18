@@ -3,12 +3,12 @@
 // or at https://www.gnu.org/licenses/agpl-3.0.txt
 
 #let _ruby(rt, rb, size, pos, dy, alignment, delimiter, auto-spacing) = {
-  if not ("center", "start", "between", "around").contains(alignment) {
+  if not ("center", "start", "between", "around", auto).contains(alignment) {
     panic("'" + repr(alignment) + "' is not a valid ruby alignment")
   }
 
-  if not (top, bottom).contains(pos) {
-    panic("pos can be either top or bottom but '" + repr(pos) + "'")
+  if not (top, bottom, auto).contains(pos) {
+    panic("pos can be `top`, `bottom`, or `auto`; got '" + repr(pos) + "'")
   }
 
   let extract-content(content, fn: it => it) = {
@@ -50,13 +50,13 @@
     rb-array = (rb,)
   }
 
-  let gutter = if (alignment == "center" or alignment == "start") {
-    h(0pt)
-  } else if (alignment == "between" or alignment == "around") {
-    h(1fr)
-  }
-
-  box(layout(((width, height)) => {
+  // lazy eval
+  let ruby_paged(alignment, pos) = box(layout(((width, height)) => {
+    let gutter = if (alignment == "center" or alignment == "start") {
+      h(0pt)
+    } else if (alignment == "between" or alignment == "around") {
+      h(1fr)
+    }
     let sum-body = []
     let sum-width = 0pt
     let i = 0
@@ -111,13 +111,67 @@
     }
     sum-body
   }))
+
+  context if target() == "html" {
+    // simply map ruby elements to html.ruby and html.rt
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Ruby_layout
+    let css-props = if alignment == auto {
+      (:)
+    } else {
+      let align = if alignment == "around" {
+        "space-around"
+      } else if alignment == "between" {
+        "space-between"
+      } else if alignment == "center" {
+        "center"
+      } else if alignment == "start" {
+        "start"
+      }
+      (ruby-align: align)
+    } + if pos == auto {
+      (:)
+    } else {
+      let css-pos = if pos == top {
+        "over"
+      } else if pos == bottom {
+        "under"
+      }
+      (ruby-position: css-pos)
+    }
+    let css-str = for (k, v) in css-props {
+      k + ":" + v + ";"
+    }
+    let ruby-fn = if css-str == none {
+      html.ruby
+    } else {
+      html.ruby.with(style: css-str)
+    }
+    // the browser handles the layout in this case, so `auto-spacing` doesn't have
+    // any effect on the placement. Remove empty entries to reduce HTML noise
+    let rb-rt = rb-array.zip(rt-array).filter(((rb, rt)) => rb != "" and rt != "")
+    ruby-fn(for (rb, rt) in rb-rt {
+      rb
+      html.rp[(]
+      html.rt(rt)
+      html.rp[)]
+    })
+  } else {
+    if alignment == none {
+      alignment = "center"
+    }
+    let pos = pos
+    if pos == auto {
+      pos = top
+    }
+    ruby_paged(alignment, pos)
+  }
 }
 
 #let get-ruby(
   size: 0.5em,
   dy: 0pt,
-  pos: top,
-  alignment: "center",
+  pos: auto,
+  alignment: auto,
   delimiter: "|",
   auto-spacing: true
 ) = (rt, rb, alignment: alignment) => (
